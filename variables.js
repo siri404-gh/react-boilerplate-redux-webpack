@@ -3,6 +3,6 @@ module.exports = {
   clientVars : {
   },
   serverVars: {
-    port: 3000
+    port: 5000
   }
 };
