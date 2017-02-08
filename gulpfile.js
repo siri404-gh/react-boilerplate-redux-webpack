@@ -15,7 +15,6 @@ var eslint = require('gulp-eslint');
 var shell = require('gulp-shell');
 var nodemon = require('gulp-nodemon');
 var nodemonConfig = require('./nodemon');
-var notify = require("gulp-notify");
 var htmlhint = require("gulp-htmlhint");
 var args = require('yargs').argv;
 var dest = variables.dest;
@@ -47,7 +46,6 @@ gulp.task('browserify', ['docs'], () => {
   .pipe(sourcemaps.init({ loadMaps: true }))
   .pipe(sourcemaps.write('map'))
   .pipe(gulp.dest(dest))
-  .pipe(notify('Building files.'))
   .pipe(liveReload());
 });
 
