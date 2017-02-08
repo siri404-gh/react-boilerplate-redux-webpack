@@ -1,4 +1,5 @@
 module.exports = {
+  source: 'src',
   dest: 'dist',
   clientVars : {
   },
