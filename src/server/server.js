@@ -1,7 +1,7 @@
 var http = require('http');
 var utils = require('./utils');
 var variables = require('../../variables');
-var port = process.env.PORT || variables.serverVars.port;
+var port = variables.serverVars.port;
 var express = require('express');
 var app = express();
 
