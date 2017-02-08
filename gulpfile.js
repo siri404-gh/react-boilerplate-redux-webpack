@@ -10,7 +10,6 @@ var uglify = require('gulp-uglify');
 var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var Server = require('karma').Server;
-var variables = require('./variables');
 var eslint = require('gulp-eslint');
 var shell = require('gulp-shell');
 var nodemon = require('gulp-nodemon');
@@ -18,8 +17,8 @@ var nodemonConfig = require('./nodemon');
 var htmlhint = require("gulp-htmlhint");
 var args = require('yargs').argv;
 
-const { src, dest, watchFolder, browserifyInput, browserifyOutput, sourceMapsFolder, docsTask, lessSource, lessDest } = variables;
-
+const { src, dest, client, watchFolder, browserifyInput, browserifyOutput, sourceMapsFolder, docsTask, lessSource, lessDest } = require('./variables');
+console.log(lessDest);
 process.env.NODE_ENV = 'production';
 
 gulp.task('default', ['server']);
@@ -61,9 +60,9 @@ gulp.task('less', ['copy'], function () {
 });
 
 gulp.task('copy', ['test'], function(){
-  gulp.src('./'+ src +'/client/*.html').pipe(gulp.dest(dest));
-  gulp.src('./'+ src +'/client/css/*.*').pipe(gulp.dest(lessDest));
-  gulp.src('./'+ src +'/client/images/*.*').pipe(gulp.dest(dest+'/images'));
+  gulp.src(client + '*.html').pipe(gulp.dest(dest));
+  gulp.src(client +'css/*.*').pipe(gulp.dest(lessDest));
+  gulp.src(client+'images/*.*').pipe(gulp.dest(dest+'images'));
 });
 
 gulp.task('test', ['lint'], function (next) {
@@ -79,7 +78,7 @@ gulp.task('lint', ['htmlhint'], () => {
 });
 
 gulp.task('htmlhint', () => {
-  gulp.src("./client/src/*.html")
+  gulp.src(client + "*.html")
   .pipe(htmlhint('.htmlhintrc'))
   .pipe(htmlhint.reporter('htmlhint-stylish'))
   .pipe(htmlhint.failReporter());
