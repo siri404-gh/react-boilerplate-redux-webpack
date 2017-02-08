@@ -7,6 +7,7 @@ var components = clientJS + 'components/';
 
 var appName = 'app.js';
 var sourceMapsFolderName = 'map';
+var port = process.env.PORT || 5000;
 
 module.exports = {
   src: src,
@@ -22,6 +23,6 @@ module.exports = {
   clientVars : {
   },
   serverVars: {
-    port: 5000
+    port: port
   },
 };
