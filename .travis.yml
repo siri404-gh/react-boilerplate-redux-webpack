@@ -1,9 +1,12 @@
 language: node_js
 node_js:
-    - "6"
+- '6'
 before_install:
-    - npm install -g gulp
-install: 
-    - npm install
-script: 
-    - npm run prod
+- npm install -g gulp
+install:
+- npm install
+script:
+- npm run prod
+deploy:
+  api_key:
+    secure: pX0nHGBysowXzN6aGGGxijw6I8r5v8cZhM7nqsFhJFgy4DVHki9cQgkdIJGOdU3DAgeCPQ96VoXpfO5wHBL1v5AikXsVxooGJ/9xnJffWgwJXNF/JLva8MjTNN6wbbBQmmWwtQk/UUVtoZTSfxC/htA9YNRY4MIM1VnkuRW8ICNeNoz0CMSo7+xF21oDo60xu3fc1KcBNYxd1ccJl9pzGBD5vcGXY1dZSQa8SC7emcPdW0sumuBvQPlTD8ArgO2s5Fouq6jDLS8l4lxZ6i9UyXMEqR8ZRYkVngTppfhH0+UGTcJNlFcdYd0aU5jKXDONPD1zl9KBkRwVJMV0ehPI7AVbHAItca4nK8OE8UbvZHoQQREOwcT71j3ltfmRXwJein2MpuMns7faxdOPv92M9R1mTFW7AjUWGFUsJpLORZ1aJV7b85DH8gFHJzaraBzOnQFn6WB4/+VPn9gbtbuncIWnYFy1IZS1KRwJ+WDhPXTUTzC+h/FoxEdtj1yXilT/+xPkI3y3Wg+X4K995ZfSnv4zC69Bl/Q2LwOrN0HxkWSrC1XJrKTlGcyM80az6VW74UcCxNcJHWfB+eqEvAfe4MGCuCSGtlxZt41zMExp6XdBH3kIrUx41sYp2Zwwrz9r3vhogGgbFWT8BRFD+EwUu0MBa+tEjQGkJEQdE09RZ0g=
