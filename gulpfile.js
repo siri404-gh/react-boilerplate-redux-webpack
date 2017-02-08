@@ -17,7 +17,8 @@ var nodemon = require('gulp-nodemon');
 var nodemonConfig = require('./nodemon');
 var htmlhint = require("gulp-htmlhint");
 var args = require('yargs').argv;
-var dest = variables.dest;
+
+const { src, dest, watchFolder, browserifyInput, browserifyOutput, sourceMapsFolder, docsTask, lessSource, lessDest } = variables;
 
 process.env.NODE_ENV = 'production';
 
@@ -32,39 +33,37 @@ gulp.task('server', ['build'], () => {
 gulp.task('build', ['browserify'], () => {
   if(args.local) {
     liveReload.listen();
-    gulp.watch('./src/**/*.*', ['build']);
+    gulp.watch(watchFolder, ['build']);
   }
 });
 
 gulp.task('browserify', ['docs'], () => {
-  browserify('./src/client/js/app.js')
+  browserify(browserifyInput)
   .transform([babelify])
   .bundle()
-  .pipe(source('app.js'))
+  .pipe(source(browserifyOutput))
   .pipe(buffer())
   .pipe(uglify())
   .pipe(sourcemaps.init({ loadMaps: true }))
-  .pipe(sourcemaps.write('map'))
+  .pipe(sourcemaps.write(sourceMapsFolder))
   .pipe(gulp.dest(dest))
   .pipe(liveReload());
 });
 
-gulp.task('docs', ['less'], 
-  shell.task(['./node_modules/.bin/jsdoc ./src/client/js/components/ -c ./jsdoc.conf.json -r'])
-);
+gulp.task('docs', ['less'], shell.task([docsTask]));
 
 gulp.task('less', ['copy'], function () {
-  gulp.src('./src/client/css/style.less')
+  gulp.src(lessSource)
   .pipe(less({
     paths: [ path.join(__dirname, 'less', 'includes') ]
   }))
-  .pipe(gulp.dest(dest+'/css'));
+  .pipe(gulp.dest(lessDest));
 });
 
 gulp.task('copy', ['test'], function(){
-  gulp.src('./src/client/*.html').pipe(gulp.dest(dest));
-  gulp.src('./src/client/css/*.*').pipe(gulp.dest(dest+'/css'));
-  gulp.src('./src/client/images/*.*').pipe(gulp.dest(dest+'/images'));
+  gulp.src('./'+ src +'/client/*.html').pipe(gulp.dest(dest));
+  gulp.src('./'+ src +'/client/css/*.*').pipe(gulp.dest(lessDest));
+  gulp.src('./'+ src +'/client/images/*.*').pipe(gulp.dest(dest+'/images'));
 });
 
 gulp.task('test', ['lint'], function (next) {
@@ -76,7 +75,6 @@ gulp.task('test', ['lint'], function (next) {
 gulp.task('lint', ['htmlhint'], () => {
   gulp.src(['*.js'])
   .pipe(eslint())
-  // .pipe(eslint.format())
   .pipe(eslint.failAfterError());
 });
 
@@ -86,6 +84,3 @@ gulp.task('htmlhint', () => {
   .pipe(htmlhint.reporter('htmlhint-stylish'))
   .pipe(htmlhint.failReporter());
 });
-
-
-
