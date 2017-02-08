@@ -38,7 +38,7 @@ gulp.task('build', ['browserify'], () => {
 });
 
 gulp.task('browserify', ['docs'], () => {
-  browserify('./src/client/js/index.js')
+  browserify('./src/client/js/app.js')
   .transform([babelify])
   .bundle()
   .pipe(source('app.js'))
@@ -51,7 +51,9 @@ gulp.task('browserify', ['docs'], () => {
   .pipe(liveReload());
 });
 
-gulp.task('docs', ['less'], shell.task(['./node_modules/.bin/jsdoc ./src/client/js/components/ -c ./jsdoc.conf.json -r']));
+gulp.task('docs', ['less'], 
+  shell.task(['./node_modules/.bin/jsdoc ./src/client/js/components/ -c ./jsdoc.conf.json -r'])
+);
 
 gulp.task('less', ['copy'], function () {
   gulp.src('./src/client/css/style.less')
