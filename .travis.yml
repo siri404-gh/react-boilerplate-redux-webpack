@@ -7,10 +7,10 @@ install:
 - npm install
 script:
 - npm run prod
-deploy:
-  provider: heroku
-  api_key:
-    secure: epKPFbkoB8dudaOkwsaVdzspPAtCvnny0PXUCEPBLJ7jb7uvSIdjzykXYrunFwJlUDRpETRDfq2rRaiM1H21dGIZuxjo6GOfLPTcyVKGg42wk625EY/CwF8Y2vG6u2o6xoe4099PIoJzJVNRjkzCONhZ04yl5nKy04bKc78vkvJ5n8hwi5bt1B4v7tSpBTEN8OvHH8OcY6/TUXvUDGMUk9U5mtnAW46Gv0QrgYE1fTjnxABQi8ed0/pUe9FFvP4CUimebYG5XAtnbB1KtPS22gy0KYwPVZIVZQ1CBxq+3iEgo6eoeuZso30U7Xb8g1aT9IIpB4Amy3yxGGnbrlETcY55lPpoIWCWFUz+NHp22lWooC8eYQR70MMCUtj+t1zjXyMkkhCteJZ//cOzeMYpN0UfASXA//5qVzFR6p+aVipWFVuoR+kHJgx3etSKAK/asHkPZ+8k79QPIulfZuVRMZK+OxtIJ7MQ/mq/hdk4gHAabAs+zrjIg5LRGKihyGAQOA7H/yInLb8icu9aZLiAjB0ExvsWMyFaSKPL6lNqzWfWrr8mmCnslcGoGq5z7/3g+P0D327ue1DxFfmlwafakOig/YPUV6yWyy0VX2gJD4Ko9TLlY68HSN/ca1lLGYSPJ7IKR+efhCcmsEiogleYNltQaDstTqOncE1yNF7OM6Y=
-  app: react-yeoman
-  on:
-    repo: sreerampr/react-yeoman-generator
+# deploy:
+#   provider: heroku
+#   api_key:
+#     secure: epKPFbkoB8dudaOkwsaVdzspPAtCvnny0PXUCEPBLJ7jb7uvSIdjzykXYrunFwJlUDRpETRDfq2rRaiM1H21dGIZuxjo6GOfLPTcyVKGg42wk625EY/CwF8Y2vG6u2o6xoe4099PIoJzJVNRjkzCONhZ04yl5nKy04bKc78vkvJ5n8hwi5bt1B4v7tSpBTEN8OvHH8OcY6/TUXvUDGMUk9U5mtnAW46Gv0QrgYE1fTjnxABQi8ed0/pUe9FFvP4CUimebYG5XAtnbB1KtPS22gy0KYwPVZIVZQ1CBxq+3iEgo6eoeuZso30U7Xb8g1aT9IIpB4Amy3yxGGnbrlETcY55lPpoIWCWFUz+NHp22lWooC8eYQR70MMCUtj+t1zjXyMkkhCteJZ//cOzeMYpN0UfASXA//5qVzFR6p+aVipWFVuoR+kHJgx3etSKAK/asHkPZ+8k79QPIulfZuVRMZK+OxtIJ7MQ/mq/hdk4gHAabAs+zrjIg5LRGKihyGAQOA7H/yInLb8icu9aZLiAjB0ExvsWMyFaSKPL6lNqzWfWrr8mmCnslcGoGq5z7/3g+P0D327ue1DxFfmlwafakOig/YPUV6yWyy0VX2gJD4Ko9TLlY68HSN/ca1lLGYSPJ7IKR+efhCcmsEiogleYNltQaDstTqOncE1yNF7OM6Y=
+#   app: react-yeoman
+#   on:
+#     repo: sreerampr/react-yeoman-generator
