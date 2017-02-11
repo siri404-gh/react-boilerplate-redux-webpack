@@ -17,7 +17,7 @@ module.exports = {
   browserifyInput: clientJS + appName,
   browserifyOutput: appName,
   sourceMapsFolder: sourceMapsFolderName,
-  docsTask: './node_modules/.bin/jsdoc '+ components +' -c ./jsdoc.conf.json -r',
+  docsTask: './node_modules/.bin/jsdoc '+ clientJS +' -c ./jsdoc.conf.json -r',
   lessSource: clientCSS + 'style.less',
   lessDest: dest+'css',
   clientVars : {
