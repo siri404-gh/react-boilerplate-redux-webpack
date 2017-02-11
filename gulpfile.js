@@ -18,7 +18,7 @@ var htmlhint = require("gulp-htmlhint");
 var args = require('yargs').argv;
 
 const { src, dest, client, watchFolder, browserifyInput, browserifyOutput, sourceMapsFolder, docsTask, lessSource, lessDest } = require('./variables');
-console.log(lessDest);
+
 process.env.NODE_ENV = 'production';
 
 gulp.task('default', ['server']);

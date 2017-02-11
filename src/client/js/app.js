@@ -1,8 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => (
-  <h1>Built using travis, deployed into heroku.</h1>
-);
+import { createStore } from './redux';
 
-ReactDOM.render(<App/>, document.getElementById('content'));
+import App from './components/app/app';
+import reducer from './reducers';
+
+const { getState, subscribe, dispatch } = createStore(reducer);
+
+// const render = () => {
+//   ReactDOM.render(<App />, document.querySelector('.content'));
+// };
+
+// subscribe(render);
+
+// render();
+
+// console.log(reducer());

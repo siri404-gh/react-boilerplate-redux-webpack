@@ -7,10 +7,10 @@ module.exports = function(config) {
     basePath: '',
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'browserify'],
     // list of files / patterns to load in the browser
     files: [
-      './src/client/js/**/*-test.js'
+      './src/client/js/**/*test.js'
     ],
     // list of files to exclude
     exclude: [
@@ -18,7 +18,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './src/client/src/js/**/*-test.js': ['coverage']
+      './src/client/js/**/*test.js': ['browserify']
     },
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -45,6 +45,14 @@ module.exports = function(config) {
     singleRun: true,
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+    browserify: {
+      transform: [['babelify', {
+        'presets': ['es2015', 'stage-2', 'react'],
+        'plugins': ['transform-object-assign', ['istanbul', {}]]
+      }]],
+      extensions: ['.js', '.jsx'],
+      debug: true
+    }
   });
 };
