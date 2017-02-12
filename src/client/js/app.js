@@ -37,36 +37,55 @@ const getVisibleTodos = (todos, filter = 'SHOW_ALL') => {
   }
 };
 
+const SingleTodo = ({onClick, done, task}) => {
+  return (
+  <li  onClick={onClick}
+    style={{
+      textDecoration: done ? 'line-through' : 'none'
+    }}>{task}</li>
+  );
+};
+
+const TodoList = ({todos, onTodoClick}) => {
+  return (
+    <ul>
+      {todos.map(todo => <SingleTodo key={todo.id} onClick={() => onTodoClick(todo.id)} task={todo.task} done={todo.done}/>)}
+    </ul>
+  );
+};
+
+const AddTodo = ({onTodoAdd}) => {
+  let input;
+  return (
+    <div>
+      <input ref={node => input = node} type='text'/>
+      <button onClick={() => {
+        onTodoAdd(input.value);
+        input.value = '';
+      }}>+</button>
+    </div>
+  );
+};
+
 class TodoApp extends Component {
   render () {
     const { todos, visibilityFilter } = this.props;
     const visibleTodos = getVisibleTodos(todos, visibilityFilter);
     return (
       <div>
-        <input ref={node => this.input = node} type='text'/>
-        <button onClick={() => {
+        <AddTodo onTodoAdd={task => {
           dispatch({
             type: 'ADD_TODO',
             id: i++,
-            task: this.input.value
+            task
           });
-          this.input.value = '';
-        }}>+</button>
-        {visibleTodos.map(todo => {
-          return (
-            <li  onClick={() => {
-              dispatch({
-                type: 'TOGGLE_TODO',
-                id: todo.id
-              });
-            }}
-            style={{
-              textDecoration: todo.done 
-                ? 'line-through'
-                : 'none'
-            }}>{todo.task}</li>
-          );
-        })}
+        }}/>
+        <TodoList todos={visibleTodos} onTodoClick={(id) => {
+          dispatch({
+            type: 'TOGGLE_TODO',
+            id
+          });
+        }}/>
         <p>
           Show: 
           { ' ' }
