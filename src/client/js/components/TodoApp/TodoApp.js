@@ -4,16 +4,16 @@ import { TodoList } from '../TodoList/TodoList';
 import { Footer } from '../Footer/Footer';
 
 const getVisibleTodos = (todos, filter = 'SHOW_ALL') => {
-  switch(filter) {
-  case 'SHOW_ALL':
-    return todos;
-  case 'SHOW_DONE':
-    return todos.filter(t => t.done);
-  case 'SHOW_NOT_DONE':
-    return todos.filter(t => !t.done);
-  default:
-    return todos;
-  }
+    switch(filter) {
+    case 'SHOW_ALL':
+        return todos;
+    case 'SHOW_DONE':
+        return todos.filter(t => t.done);
+    case 'SHOW_NOT_DONE':
+        return todos.filter(t => !t.done);
+    default:
+        return todos;
+    }
 };
 
 let i = 0;

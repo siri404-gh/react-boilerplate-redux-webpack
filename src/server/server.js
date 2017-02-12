@@ -10,7 +10,7 @@ var app = express();
 
 app.use(express.static(variables.dest));
 app.listen(port, () => {
-  utils.print('Listening to port:', port);
+    utils.print('Listening to port:', port);
 });
 
 // var requestHandler = (request, response) => {

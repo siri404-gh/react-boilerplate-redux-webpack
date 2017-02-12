@@ -24,20 +24,20 @@ process.env.NODE_ENV = 'production';
 gulp.task('default', ['server']);
 
 gulp.task('server', ['build'], () => {
-  if (args.local) {
-    nodemon(nodemonConfig);
-  }
+    if (args.local) {
+        nodemon(nodemonConfig);
+    }
 });
 
 gulp.task('build', ['browserify'], () => {
-  if(args.local) {
-    liveReload.listen();
-    gulp.watch(watchFolder, ['build']);
-  }
+    if(args.local) {
+        liveReload.listen();
+        gulp.watch(watchFolder, ['build']);
+    }
 });
 
 gulp.task('browserify', ['docs'], () => {
-  browserify(browserifyInput)
+    browserify(browserifyInput)
   .transform([babelify])
   .bundle()
   .pipe(source(browserifyOutput))
@@ -52,33 +52,33 @@ gulp.task('browserify', ['docs'], () => {
 gulp.task('docs', ['less'], shell.task([docsTask]));
 
 gulp.task('less', ['copy'], function () {
-  gulp.src(lessSource)
+    gulp.src(lessSource)
   .pipe(less({
-    paths: [ path.join(__dirname, 'less', 'includes') ]
+      paths: [ path.join(__dirname, 'less', 'includes') ]
   }))
   .pipe(gulp.dest(lessDest));
 });
 
 gulp.task('copy', ['test'], function(){
-  gulp.src(client + '*.html').pipe(gulp.dest(dest));
-  gulp.src(client +'css/*.*').pipe(gulp.dest(lessDest));
-  gulp.src(client+'images/*.*').pipe(gulp.dest(dest+'images'));
+    gulp.src(client + '*.html').pipe(gulp.dest(dest));
+    gulp.src(client +'css/*.*').pipe(gulp.dest(lessDest));
+    gulp.src(client+'images/*.*').pipe(gulp.dest(dest+'images'));
 });
 
 gulp.task('test', ['lint'], function (next) {
-  new Server({
-    configFile: __dirname + '/karma.conf.js'
-  }, next).start();
+    new Server({
+        configFile: __dirname + '/karma.conf.js'
+    }, next).start();
 });
 
 gulp.task('lint', ['htmlhint'], () => {
-  gulp.src(['*.js'])
+    gulp.src(['*.js'])
   .pipe(eslint())
   .pipe(eslint.failAfterError());
 });
 
 gulp.task('htmlhint', () => {
-  gulp.src(client + "*.html")
+    gulp.src(client + "*.html")
   .pipe(htmlhint('.htmlhintrc'))
   .pipe(htmlhint.reporter('htmlhint-stylish'))
   .pipe(htmlhint.failReporter());
