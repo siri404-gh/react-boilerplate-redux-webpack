@@ -1,12 +1,10 @@
 import React from 'react';
-import { FilterLink } from '../FilterLink/FilterLink';
+import FilterLink from '../FilterLink/FilterLink';
 
-export const Footer = ({ visibilityFilter, onFilterClick }) => (
-  <p>Show: 
-    <FilterLink filter='SHOW_ALL' currentFilter={visibilityFilter} onClick={onFilterClick}>All</FilterLink>
-    { ' ' }
-    <FilterLink filter='SHOW_DONE' currentFilter={visibilityFilter} onClick={onFilterClick}>Done</FilterLink>
-    { ' ' }
-    <FilterLink filter='SHOW_NOT_DONE' currentFilter={visibilityFilter} onClick={onFilterClick}>Active</FilterLink>
+export const Footer = () => (
+  <p>
+    <FilterLink filter='SHOW_ALL'>All</FilterLink>
+    <FilterLink filter='SHOW_DONE'>Done</FilterLink>
+    <FilterLink filter='SHOW_NOT_DONE'>Active</FilterLink>
   </p>
 );

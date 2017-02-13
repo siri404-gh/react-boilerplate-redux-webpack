@@ -1,12 +1,13 @@
 import React from 'react';
-
-export const AddTodo = ({onTodoAdd}) => {
+import { getState, subscribe, dispatch } from '../../redux/store';
+let i = 0;
+export const AddTodo = () => {
     let input;
     return (
         <div>
             <input ref={node => input = node} type='text'/>
             <button onClick={() => {
-                onTodoAdd(input.value);
+                dispatch({type: 'ADD_TODO', id: i++, task: input.value});
                 input.value = '';
             }}>+</button>
         </div>

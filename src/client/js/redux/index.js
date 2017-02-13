@@ -5,10 +5,13 @@ export const createStore = (reducer) => {
     const getState = () => state;
     const subscribe = (listener) => {
         listeners.push(listener);
+        return () => {
+            listeners = listeners.filter(l => listener !== l);
+        };
     };
     const dispatch = (action) => {
         state = reducer(state, action);
-        console.log('state changed to - ', state);
+        console.log('State changed to - ', state);
         listeners.forEach((listener)=> {
             listener();
         });
