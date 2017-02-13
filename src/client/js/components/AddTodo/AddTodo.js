@@ -1,8 +1,8 @@
 import React from 'react';
 import { getState, subscribe, dispatch } from '../../redux/store';
-let i = 0;
 export const AddTodo = () => {
     let input;
+    let i = 0;
     return (
         <div>
             <input ref={node => input = node} type='text'/>
