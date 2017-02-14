@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { SingleTodo } from '../SingleTodo/SingleTodo';
-import { getState, subscribe, dispatch } from '../../redux/store';
 
 const getVisibleTodos = (todos, filter = 'SHOW_ALL') => {
     switch(filter) {
@@ -17,18 +16,24 @@ const getVisibleTodos = (todos, filter = 'SHOW_ALL') => {
 
 export default class TodoList extends Component {
     componentWillMount() {
-        this.unsubscribe = subscribe(() => this.forceUpdate());
+        const { store } = this.context;
+        this.unsubscribe = store.subscribe(() => this.forceUpdate());
     }
     componentWillUnmount() {
         this.unsubscribe();
     }
     render () {
-        const state = getState();
+        const {store} = this.context;
+        const state = store.getState();
         const todos = getVisibleTodos(state.todos, state.visibilityFilter);
         return (
             <ul>
-                {todos.map(todo => <SingleTodo key={todo.id} onClick={id => dispatch({type: 'TOGGLE_TODO', id: todo.id})} task={todo.task} done={todo.done}/>)}
+                {todos.map(todo => <SingleTodo key={todo.id} onClick={id => store.dispatch({type: 'TOGGLE_TODO', id: todo.id})} task={todo.task} done={todo.done}/>)}
             </ul>
         );
     }
 }
+
+TodoList.contextTypes = {
+    store: React.PropTypes.object
+};
