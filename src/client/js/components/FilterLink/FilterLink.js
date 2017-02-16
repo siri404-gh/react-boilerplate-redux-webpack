@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from '../Link/Link';
 import { connect } from 'react-redux';
+import { setVisibilityFilter } from './FilterLinkActions';
 
 export default connect(
     (state, ownProps) => {
@@ -10,10 +11,7 @@ export default connect(
     },
     (dispatch, ownProps) => {
         return {
-            onFilterClick: () => dispatch({
-                type: 'SET_VISIBILITY_FILTER',
-                filter: ownProps.filter
-            })
+            onFilterClick: () => dispatch(setVisibilityFilter(ownProps.filter))
         };
     }
 )(Link);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addTodo } from './AddTodoActions';
 
 let AddTodo = ({ dispatch }) => {
     let input;
@@ -8,7 +9,7 @@ let AddTodo = ({ dispatch }) => {
         <div>
             <input ref={node => input = node} type='text'/>
             <button onClick={() => {
-                dispatch({type: 'ADD_TODO', id: id++, task: input.value});
+                dispatch(addTodo(input.value))
                 input.value = '';
             }}>+</button>
         </div>
