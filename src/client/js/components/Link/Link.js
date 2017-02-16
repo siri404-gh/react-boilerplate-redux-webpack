@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Link = ({ active, children, onClick }) => {
+export const Link = ({ active, children, onFilterClick }) => {
     return active
     ? <span>{children}</span>
     : (
-      <button onClick={_ => onClick()}>{children}</button>
+      <button onClick={_ => onFilterClick()}>{children}</button>
     );
 };

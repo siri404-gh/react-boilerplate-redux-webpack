@@ -1,3 +1,7 @@
 import React from 'react';
 
-export const SingleTodo = ({onClick, done, task}) => <li  onClick={onClick} style={{ textDecoration: done ? 'line-through' : 'none' }}>{task}</li>;
+export const SingleTodo = ({onTodoClick, done, task}) => {
+    return (
+        <li  onClick={onTodoClick} style={{ textDecoration: done ? 'line-through' : 'none' }}>{task}</li>
+    );
+};
