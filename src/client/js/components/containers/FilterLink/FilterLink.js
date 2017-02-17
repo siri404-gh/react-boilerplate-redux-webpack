@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from '../Link/Link';
 import { connect } from 'react-redux';
-import { setVisibilityFilter } from './FilterLinkActions';
+import { Link } from '../../presentational/Link/Link';
+import { setVisibilityFilter } from '../../../actions/FilterLink/FilterLinkActions';
 
 export default connect(
     (state, ownProps) => {

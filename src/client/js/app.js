@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from './redux';
-// import Provider from './redux/Provider';
-// import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import store from './data/store';
 
-import reducer from './reducers';
-import {TodoApp} from './components/TodoApp/TodoApp';
+import { Provider } from 'react-redux';
+import { TodoApp } from './components/TodoApp/TodoApp';
 
 ReactDOM.render(
-    <Provider store={createStore(reducer)}>
+    <Provider store={store}>
         <TodoApp/>
     </Provider>, document.querySelector('.content')
 );

@@ -20,7 +20,7 @@ export const createStore = (reducer) => {
     return { getState, subscribe, dispatch };
 };
 
-export const combinedReducers = (reducers) => {
+export const combineReducers = (reducers) => {
     return (state = {}, action) => {
         return Object.keys(reducers).reduce((nextState, key) => {
             nextState[key] = reducers[key](state[key], action);

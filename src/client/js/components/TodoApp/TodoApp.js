@@ -1,12 +1,20 @@
 import React from 'react';
-import AddTodo from '../AddTodo/AddTodo';
-import VisibleTodoList from '../VisibleTodoList/VisibleTodoList';
-import { Footer } from '../Footer/Footer';
+import AddTodo from '../containers/AddTodo/AddTodo';
+import VisibleTodoList from '../containers/VisibleTodoList/VisibleTodoList';
+import { Footer } from '../presentational/Footer/Footer';
+import AppBarExampleIcon from '../presentational/AppBar/AppBar';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 export const TodoApp = () =>(
-  <div>
-    <AddTodo/>
-    <VisibleTodoList/>
-    <Footer/>
-  </div>
+    <div>
+        <MuiThemeProvider>
+            <AppBarExampleIcon/>
+        </MuiThemeProvider>
+        <AddTodo/>
+        <VisibleTodoList/>
+        <Footer/>
+    </div>
 );
