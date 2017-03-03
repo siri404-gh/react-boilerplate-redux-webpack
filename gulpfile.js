@@ -21,7 +21,9 @@ const { src, dest, client, watchFolder, browserifyInput, browserifyOutput, sourc
 
 process.env.NODE_ENV = 'production';
 
-gulp.task('default', ['server']);
+gulp.task('default', ['dev']);
+
+gulp.task('dev', ['server']);
 
 gulp.task('server', ['build'], () => {
     if (args.local) {
