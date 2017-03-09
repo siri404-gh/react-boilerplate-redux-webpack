@@ -7,7 +7,7 @@ var app = express();
 
 // var path = require('path');
 
-app.use(express.static(variables.dest));
+app.use(express.static('.'));
 app.listen(port, () => {
     utils.print('Listening to port:', port);
 });
