@@ -14,7 +14,7 @@ injectTapEventPlugin();
 export const TodoApp = () =>(
     <div>
         <MuiThemeProvider>
-            <AppBarExampleIcon title="Todo App" />
+            <AppBarExampleIcon title="TodoApp" />
         </MuiThemeProvider>
         <AddTodo/>
         <VisibleTodoList/>
