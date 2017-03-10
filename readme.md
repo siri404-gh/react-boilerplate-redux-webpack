@@ -1,8 +1,2 @@
-[![npm version](https://badge.fury.io/js/react.svg)](https://badge.fury.io/js/react)
-[![npm version](https://badge.fury.io/js/material-ui.svg)](https://badge.fury.io/js/material-ui)
-[![npm version](https://badge.fury.io/js/redux.svg)](https://badge.fury.io/js/redux)
-[![npm version](https://badge.fury.io/js/webpack.svg)](https://badge.fury.io/js/webpack)
-[![npm version](https://badge.fury.io/js/karma.svg)](https://badge.fury.io/js/karma)
-[![npm version](https://badge.fury.io/js/jasmine-core.svg)](https://badge.fury.io/js/jasmine-core)
 [![Travis branch](https://img.shields.io/travis/sreerampr/react-yeoman-generator/webpack.svg)]()
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
