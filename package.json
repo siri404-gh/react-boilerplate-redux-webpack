@@ -10,7 +10,7 @@
     "dev": "npm run rimraf && npm run dev-server",
     "travis-build": "npm run test && NODE_ENV=production webpack",
     "serve": "node src/server/server",
-    "start": "npm run travis-build && npm serve"
+    "start": "npm run travis-build && npm run serve"
   },
   "author": "Sreeram Padmanabhan",
   "license": "ISC",
