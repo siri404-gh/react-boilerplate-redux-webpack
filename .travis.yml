@@ -5,7 +5,7 @@ before_install:
 install:
 - npm install
 script:
-- npm run build
+- npm run travis-build
 # deploy:
 #   provider: heroku
 #   api_key:
