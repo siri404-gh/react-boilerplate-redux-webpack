@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "rimraf dist coverage && NODE_ENV=development ./node_modules/.bin/webpack-dev-server",
-    "prod": "npm run test && npm run dev",
+    "prod": "npm run test && NODE_ENV=production webpack",
     "test": "karma start"
   },
   "author": "Sreeram Padmanabhan",
