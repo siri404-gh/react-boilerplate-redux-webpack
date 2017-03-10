@@ -43,6 +43,7 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
         hot: true,
+        port: port,
         contentBase: resolve(__dirname, '.'),
         publicPath: dest.slice(1)
     },
