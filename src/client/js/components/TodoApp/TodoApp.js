@@ -1,5 +1,6 @@
 import React from 'react';
 import AddTodo from '../containers/AddTodo/AddTodo';
+import 'bootstrap/dist/css/bootstrap.css';
 import VisibleTodoList from '../containers/VisibleTodoList/VisibleTodoList';
 import { Footer } from '../presentational/Footer/Footer';
 import AppBarExampleIcon from '../presentational/AppBar/AppBar';
@@ -13,7 +14,7 @@ injectTapEventPlugin();
 export const TodoApp = () =>(
     <div>
         <MuiThemeProvider>
-            <AppBarExampleIcon title="my App" />
+            <AppBarExampleIcon title="TodoApp" />
         </MuiThemeProvider>
         <AddTodo/>
         <VisibleTodoList/>
