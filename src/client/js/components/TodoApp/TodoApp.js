@@ -18,12 +18,12 @@ export const TodoApp = () => (
       {/*<MuiThemeProvider>
           <AppBarExampleIcon title="Todo App" />
       </MuiThemeProvider>*/}
-      <NavBar />
+      <NavBar title='ToDo'/>
       <main className={Styles.main}>
         <AddTodo />
         <VisibleTodoList />
         <Footer />
-        <Loader />
+        {/*<Loader />*/}
       </main>
     </div>
 );
