@@ -6,17 +6,17 @@ import { Provider } from 'react-redux';
 import { TodoApp } from './components/TodoApp/TodoApp';
 
 ReactDOM.render(
-  <AppContainer>
-    <Provider store={store}>
-          <TodoApp/>
-    </Provider>
-  </AppContainer>,
-  document.getElementById('root')
+    <AppContainer>
+        <Provider store={store}>
+            <TodoApp />
+        </Provider>
+    </AppContainer>,
+    document.getElementById('root')
 );
 
 if (module.hot) {
-    module.hot.accept(() => {
-        const nextRootReducer = require('./data/reducer');
-        store.replaceReducer(nextRootReducer);
-    });
+  module.hot.accept(() => {
+    const nextRootReducer = require('./data/reducer');
+    store.replaceReducer(nextRootReducer);
+  });
 }

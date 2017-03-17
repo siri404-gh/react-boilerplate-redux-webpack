@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export const Link = ({ active, children, onFilterClick }) => {
     return active

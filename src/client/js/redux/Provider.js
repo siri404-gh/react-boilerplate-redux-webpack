@@ -6,7 +6,7 @@ export default class Provider extends Component {
             store: this.props.store
         };
     }
-    render () {
+    render() {
         return this.props.children;
     }
 }
