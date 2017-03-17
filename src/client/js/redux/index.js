@@ -12,7 +12,7 @@ export const createStore = (reducer) => {
     const dispatch = (action) => {
         state = reducer(state, action);
         console.log('State changed to - ', state);
-        listeners.forEach((listener)=> {
+        listeners.forEach((listener) => {
             listener();
         });
     };
